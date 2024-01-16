@@ -4,148 +4,65 @@ publish_to: none
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.5 <4.0.0'
+  sdk: ^3.2.0
 
 dependencies:
+  cupertino_icons:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  cupertino_icons: ^1.0.2
 
-  # Logger
-  simple_logger:
+  # Riverpod.
+  flutter_riverpod: 2.4.5
+  riverpod_annotation:
 
-  # LocalDatabase
-  shared_preferences:
-
-  # Riverpod
-  hooks_riverpod: ^2.4.9
-  riverpod_annotation: ^2.3.3
-
-  # Hooks
-  flutter_hooks: ^0.20.4
-
-  # Entity
-  freezed_annotation:
+  # Entity.
   json_annotation:
-  equatable:
+  freezed_annotation:
 
-  # Dialog
-  adaptive_dialog:
+  # Firebase.
+  firebase_core: 2.22.0
+  firebase_analytics:
+  cloud_firestore:
+  firebase_auth:
+  cloud_functions:
+  firebase_crashlytics:
 
-  # Access local storage
-  path_provider:
+  # Widget.
+  gap:  
 
-  # Date
-  intl:
-
-  # Reactive
-  rxdart:
-
-  # Data share
-  share_plus:
-
-  # WebView
-  flutter_inappwebview: ^5.8.0
-
-  # Launcher
-  url_launcher:
-  map_launcher:
-
-  # Transition
-  page_transition:
-
-  # Image
-  image_picker:
-  image_gallery_saver:
-  image_cropper:
-  flutter_image_compress:
-  extended_image:
-  flutter_svg:
-
-  # Picker
-  numberpicker:
-
-  # PullToRefresh
-  pull_to_refresh_flutter3:
-
-  # Permission
-  permission_handler:
-
-  # Firebase
-  firebase_core: ^2.24.2
-  firebase_analytics: ^10.8.0
-  cloud_firestore: ^4.14.0
-  firebase_auth: ^4.16.0
-  firebase_storage: ^11.6.0
-  cloud_functions: ^4.6.0
-  firebase_messaging: ^14.7.10
-  firebase_crashlytics: ^3.4.9
-  firebase_remote_config: ^4.3.8
-
-  # LocalNotification
-  flutter_local_notifications:
-  flutter_native_timezone:
-  timezone:
-
-  # Api
-  retrofit:
-  dio:
-
-  # Navigation
-  go_router: ^12.1.1
-
-  # Info
+  # Info.
   package_info_plus:
   device_info_plus:
 
-  # Text
-  flutter_linkify:
+  # Other.
+  intl:
+  roggel:
+  url_launcher:
 
-  # Widget
-  flutter_slidable:
-  dismissible_page:
-
-  # Other
-  uuid:
-  synchronized:
-  hashids2:
-  collection:
-  quiver:
-  html:
-
-dev_dependencies:
-  # Test
-  integration_test:
-    sdk: flutter
+dev_dependencies:  
   flutter_test:
     sdk: flutter
-  mockito:
 
-  # Static analysis
-  pedantic_mono: ^1.25.0
-  custom_lint: ^0.5.8
-  riverpod_lint: ^2.3.7
+  # Static analysis.
+  custom_lint:  
+  pedantic_mono:
+  riverpod_lint:
 
-  # Serializer
-  json_serializable:
-
-  # Code generator
+  # Code generation.
   build_runner:
   freezed:
-  flutter_gen_runner:
-  retrofit_generator:
-  riverpod_generator: ^2.3.9
+  json_serializable:  
+  riverpod_generator:
 
-  # Other
+  # Other.
   flutter_launcher_icons:
 
-flutter_gen:
-  output: lib/core/res/gen/
-  colors:
-    inputs:
-      - assets/color/colors.xml
+
+# flutter_gen:
+#   output: lib/core/res/gen/
+#   colors:
+#     inputs:
+#       - assets/color/colors.xml
 
 flutter:
   uses-material-design: true
@@ -164,7 +81,6 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-
 # flutter_launcher_iconsを利用してアイコンのリサイズする場合はここを設定する
 #flutter_icons:
 #  android: true

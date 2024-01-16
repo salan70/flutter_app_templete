@@ -51,7 +51,8 @@ ThemeData getAppTheme() {
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {
         TargetPlatform.android:
-            CupertinoPageTransitionsBuilder(), // AndroidもCupertinoPageTransitionsBuilderに設定する
+            // AndroidもCupertinoPageTransitionsBuilderに設定する
+            CupertinoPageTransitionsBuilder(),
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
         TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
         TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
@@ -105,7 +106,8 @@ ThemeData getAppThemeDark() {
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {
         TargetPlatform.android:
-            CupertinoPageTransitionsBuilder(), // AndroidもCupertinoPageTransitionsBuilderに設定する
+            // AndroidもCupertinoPageTransitionsBuilderに設定する
+            CupertinoPageTransitionsBuilder(),
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
         TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
         TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
