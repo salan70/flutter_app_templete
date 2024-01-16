@@ -1,51 +1,41 @@
-# コードを自動生成する
-run_build_runner:
-	dart run build_runner build
+# flutter clean + flutter pub get.
+clean_pub_get:
+	fvm flutter clean
+	fvm flutter pub get
 
-# コードを監視して自動生成する
-watch_build_runner:
-	dart run build_runner watch
+# コードを自動生成する。
+generate:
+	fvm flutter packages pub run build_runner build --delete-conflicting-outputs
 
-# packageを取り込む
-pub_get:
-	flutter pub get
-
-# アイコンを作成
+# アイコンを作成する。
 create_icon:
-	flutter pub run flutter_launcher_icons:main
+	fvm flutter pub run flutter_launcher_icons:main
 
-# [Android] リリースビルド
+# テストを実行する。
+test:
+	fvm flutter test
+
+# テストを実行しカバレッジの html ファイルを開く。
+test_coverage:
+	fvm flutter test --coverage
+	lcov --remove coverage/lcov.info '*.freezed.dart' '*.g.dart' '*/repository*' -o coverage/lcov.info
+	genhtml coverage/lcov.info -o coverage/html
+	open /Users/odatetsuo/Projects/teigi_app/coverage/html/index.html
+
+
+# *--- リリースビルド ---
+# Android.
 release_build_android:
 	flutter build appbundle --release --dart-define=FLAVOR=prod --target lib/main.dart
 
-# [Android + 難読化] リリースビルド
+# Android + 難読化
 release_build_obfuscate_android:
 	flutter build appbundle --release --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod --target lib/main.dart
 
-# [iOS] リリースビルド
+# iOS.
 release_build_ios:
 	flutter build ipa --release --dart-define=FLAVOR=prod --target lib/main.dart
 
-# [iOS + 難読化] リリースビルド
+# iOS + 難読化
 release_build_obfuscate_ios:
 	flutter build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --target lib/main.dart
-
-# テスト（カバレッジ）
-flutter_test_c:
-	flutter test --coverage
-
-# lcov.info => html
-genhtml:
-	genhtml coverage/lcov.info -o coverage/html
-
-# Masonのbrickを取得する
-mason_get:
-	mason get
-
-# Masonのbricksのアップグレードする
-mason_upgrade:
-	mason upgrade
-
-# Masonで新しいfeatureディレクトリを作成する
-mason_make_feature:
-	mason make feature
