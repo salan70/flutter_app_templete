@@ -1,13 +1,13 @@
 ---
 name: Bug report
 about: バグ報告用
-title: ":bug: "
+title: "bug: "
 labels: bug
 assignees: salan70
 
 ---
 
-## バグの説明 
+## 発生したバグの説明 
 
 ## バグ発生までの操作手順
 
@@ -15,10 +15,12 @@ assignees: salan70
 
 ## バグが発生した環境
 
-- [ ] iPhone 11 (実機) / iOS XX
-- [ ] Pixel 6a (実機) / Android XX
-- [ ] iPhone XX (Simulator) / iOS XX
-- [ ] XX (Emulator) / Android XX
+<!-- バグが発生した端末と OS を記載する。 -->
+
+- iPhone 11 (実機) / iOS XX
+- Pixel 6a (実機) / Android XX
+- iPhone XX (Simulator) / iOS XX
+- XX (Emulator) / Android XX
 
 ## ログ
 ```
