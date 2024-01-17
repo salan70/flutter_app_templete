@@ -2,6 +2,14 @@
 
 Flutter + Firebase アプリのテンプレート。
 
+## 使い方
+
+### 事前準備
+
+```sh
+brew install  jq
+```
+
 ## 実装済み
 
 - Firebase を利用 (Authentication, Firestore, Functions, Analytics, Crashlytics)

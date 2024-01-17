@@ -35,8 +35,9 @@ dependencies:
   device_info_plus:
 
   # Other.
+  change_app_package_name:
   intl:
-  roggel:
+  roggle:
   url_launcher:
 
 dev_dependencies:  

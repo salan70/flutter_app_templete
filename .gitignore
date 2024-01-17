@@ -58,3 +58,5 @@ mason-lock.json
 
 # Test
 coverage/
+
+.env
