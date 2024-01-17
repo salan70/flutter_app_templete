@@ -2,8 +2,7 @@
 
 ## 概要
 
-Firebase プロジェクトの作成などを行います。  
-具体的には以下を行います。
+Terraform を用いて以下を行います。
 
 - Firebase プロジェクトの作成
 - Firebase における Android/iOS アプリの設定
@@ -13,7 +12,7 @@ Firebase プロジェクトの作成などを行います。
 - Storage を有効化
 - Auchentication を有効化し、匿名認証を有効化
 
-※ リージョンは asia-northeast1
+※ リージョンは asia-northeast1 
 
 ## 事前準備
 
@@ -46,4 +45,4 @@ https://firebase.google.com/docs/projects/terraform/get-started?hl=ja#supported-
 
 https://zenn.dev/waddy/articles/terraform-google-cloud
 
-https://zenn.dev/cloud_ace/articles/b791cce386d523#%E6%A7%8B%E7%AF%89
+https://zenn.dev/cloud_ace/articles/b791cce386d523
