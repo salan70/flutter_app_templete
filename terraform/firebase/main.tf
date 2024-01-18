@@ -1,19 +1,19 @@
-# Firebase プロジェクト用の Google Cloud プロジェクトを立ち上げる
+# Firebase プロジェクト用の Google Cloud プロジェクトを立ち上げる。
 resource "google_project" "default" {
   provider = google-beta.no_user_project_override
 
-  # project_id は一意である必要がある
-  project_id      = var.project_id
-  name            = var.project_name
+  # project_id は一意である必要がある。
+  project_id      = "${var.project_id}-${var.env}"
+  name            = "${var.project_name}-${var.env}"
   billing_account = var.billing_account
 
-  # Firebase のプロジェクトとして表示するために必要
+  # Firebase のプロジェクトとして表示するために必要。
   labels = {
     "firebase" = "enabled"
   }
 }
 
-# 各種 API を有効化する
+# 各種 API を有効化する。
 resource "google_project_service" "default" {
   provider = google-beta.no_user_project_override
   project  = google_project.default.project_id
@@ -33,18 +33,18 @@ resource "google_project_service" "default" {
   disable_on_destroy = false
 }
 
-# Firebase のプロジェクトを立ち上げる
+# Firebase のプロジェクトを立ち上げる。
 resource "google_firebase_project" "default" {
   provider = google-beta
   project  = google_project.default.project_id
 
-  # 各種 API が有効化されるのを待ってから 本リソースが実行される
+  # 各種 API が有効化されるのを待ってから 本リソースが実行される。
   depends_on = [
     google_project_service.default,
   ]
 }
 
-# Firebase プロジェクトを東京リージョンに配置する
+# Firebase プロジェクトを東京リージョンに配置する。
 resource "google_firebase_project_location" "default" {
   provider = google-beta
   project  = google_firebase_project.default.project
@@ -52,10 +52,10 @@ resource "google_firebase_project_location" "default" {
   location_id = local.region
 }
 
-# Firebase Android App
+# Firebase Android App.
 resource "google_firebase_android_app" "default" {
   provider     = google-beta
-  project      = var.project_id
+  project      = google_project.default.project_id
   display_name = "Android App"
   package_name = var.android_package_name
 
@@ -64,10 +64,10 @@ resource "google_firebase_android_app" "default" {
   ]
 }
 
-# Firebase iOS App
+# Firebase iOS App.
 resource "google_firebase_apple_app" "default" {
   provider     = google-beta
-  project      = var.project_id
+  project      = google_project.default.project_id
   display_name = "iOS app"
   bundle_id    = var.ios_bundle_id
 
@@ -76,26 +76,26 @@ resource "google_firebase_apple_app" "default" {
   ]
 }
 
-# 各種モジュールに locals ファイルを渡す
-## Firebase Authentication
+# 各種モジュールに locals ファイルを渡す。
+## Firebase Authentication.
 module "authentication" {
   source         = "./modules/authentication"
-  project_id     = var.project_id
+  project_id     = google_project.default.project_id
   services_ready = google_firebase_project.default
 }
 
-## Firebase Firestore
+## Firebase Firestore.
 module "firestore" {
   source         = "./modules/firestore"
-  project_id     = var.project_id
+  project_id     = google_project.default.project_id
   location       = local.region
   services_ready = google_firebase_project.default
 }
 
-## Firebase Cloud Storage
+## Firebase Cloud Storage.
 module "storage" {
   source           = "./modules/storage"
-  project_id       = var.project_id
+  project_id       = google_project.default.project_id
   location         = local.region
   services_ready_1 = module.firestore.firestore_database
   services_ready_2 = google_firebase_project.default

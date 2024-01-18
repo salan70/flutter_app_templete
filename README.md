@@ -7,7 +7,11 @@ Flutter + Firebase アプリのテンプレート。
 ### 事前準備
 
 ```sh
+# jq をインストールする。
 brew install  jq
+
+# flutterfire_cli をインストールする。
+fvm dart pub global activate flutterfire_cli
 ```
 
 ## 実装済み
