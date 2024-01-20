@@ -16,14 +16,14 @@ cd terraform/firebase
 
 # dev.
 sh ../terraform.sh dev apply -auto-approve -var="billing_account=$GOOGLE_CLOUD_BILLING_ACCOUNT_ID" \
-                -var="project_name=${FIREBASE_PROJECT_ID}" \
-                -var="project_id=${FIREBASE_PROJECT_ID}" \
+                -var="project_name=${FIREBASE_PROJECT_ID}-dev" \
+                -var="project_id=${FIREBASE_PROJECT_ID}-dev" \
                 -var="android_package_name=${DOMAIN}.${APP_NAME}.dev" \
-                -var="ios_bundle_id=${DOMAIN}.${APP_NAME}.dev"
+                -var="ios_bundle_id=${DOMAIN}.${IOS_BUNDLE_ID}.dev"
 
 # prod.
 sh ../terraform.sh prod apply -auto-approve -var="billing_account=$GOOGLE_CLOUD_BILLING_ACCOUNT_ID" \
-                -var="project_name=${FIREBASE_PROJECT_ID}" \
-                -var="project_id=${FIREBASE_PROJECT_ID}" \
+                -var="project_name=${FIREBASE_PROJECT_ID}-prod" \
+                -var="project_id=${FIREBASE_PROJECT_ID}-prod" \
                 -var="android_package_name=${DOMAIN}.${APP_NAME}" \
-                -var="ios_bundle_id=${DOMAIN}.${APP_NAME}"
+                -var="ios_bundle_id=${DOMAIN}.${IOS_BUNDLE_ID}"

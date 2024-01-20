@@ -420,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.toda.flutterTemplateApp$(appIdSuffix)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toda.templeteApp$(appIdSuffix)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -556,7 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.toda.flutterTemplateApp$(appIdSuffix)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toda.templeteApp$(appIdSuffix)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -586,7 +586,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.toda.flutterTemplateApp$(appIdSuffix)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toda.templeteApp$(appIdSuffix)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

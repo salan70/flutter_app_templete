@@ -23,7 +23,7 @@ test_coverage:
 	open /Users/odatetsuo/Projects/teigi_app/coverage/html/index.html
 
 
-# *--- リリースビルド ---
+# * --- リリースビルド --- * #
 # Android.
 release_build_android:
 	flutter build appbundle --release --dart-define=FLAVOR=prod --target lib/main.dart
