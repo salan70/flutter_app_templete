@@ -3,8 +3,8 @@ resource "google_project" "default" {
   provider = google-beta.no_user_project_override
 
   # project_id は一意である必要がある。
-  project_id      = "${var.project_id}-${var.env}"
-  name            = "${var.project_name}-${var.env}"
+  project_id      = var.project_id
+  name            = var.project_name
   billing_account = var.billing_account
 
   # Firebase のプロジェクトとして表示するために必要。
