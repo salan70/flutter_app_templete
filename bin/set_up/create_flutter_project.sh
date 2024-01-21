@@ -26,7 +26,7 @@ sed -i '' "s/${DEFAULT_IOS_BUNDLE_ID}/${DOMAIN}.${IOS_BUNDLE_ID}/g" $IOS_PROJECT
 
 # 共通。
 # dart_defines 内の appName を更新する。
-jq '.appName = "'$APP_NAME'"' dart_defines/dev.json > tmp.$$ && mv tmp.$$ dart_defines/dev.json
+jq '.appName = "'$APP_NAME.dev'"' dart_defines/dev.json > tmp.$$ && mv tmp.$$ dart_defines/dev.json
 jq '.appName = "'$APP_NAME'"' dart_defines/prod.json > tmp.$$ && mv tmp.$$ dart_defines/prod.json
 # pubspec.yaml を更新する。
 sed -i '' "s/name: .*/name: $APP_NAME/" pubspec.yaml
