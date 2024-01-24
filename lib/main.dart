@@ -8,8 +8,8 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import 'app.dart';
 import 'core/repository/package_info/package_info_repository.dart';
-import 'core/util/flavor.dart';
-import 'core/util/logger.dart';
+import 'util/flavor.dart';
+import 'util/logger.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

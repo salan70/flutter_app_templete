@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'core/res/theme.dart';
+import 'util/res/theme.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});
@@ -10,7 +10,7 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      title: 'テンプレアプリ', // TODO(toda): アプリ名を設定
+      title: 'テンプレアプリ', // TODO(toda): アプリ名を設定する。
       theme: getAppTheme(),
       darkTheme: getAppThemeDark(),
       debugShowCheckedModeBanner: false,
@@ -24,7 +24,7 @@ class App extends ConsumerWidget {
       ],
       home: const Scaffold(
         body: Center(
-          child: Text('テンプレアプリ'), // TODO(toda): アプリ名を設定
+          child: Text('テンプレアプリ'), // TODO(toda): アプリ名を設定する。
         ),
       ),
     );
