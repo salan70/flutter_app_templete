@@ -8,7 +8,7 @@ import io.flutter.plugins.GeneratedPluginRegistrant
 class MainActivity: FlutterActivity() {
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
-        ScreenReaderPlugin.configure(context, flutterEngine)
+        // ScreenReaderPlugin.configure(context, flutterEngine)
         GeneratedPluginRegistrant.registerWith(flutterEngine)
     }
 }
