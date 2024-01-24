@@ -106,7 +106,7 @@ ThemeData getAppThemeDark() {
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {
         TargetPlatform.android:
-            // AndroidもCupertinoPageTransitionsBuilderに設定する
+            // Android も CupertinoPageTransitionsBuilder に設定する。
             CupertinoPageTransitionsBuilder(),
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
         TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),

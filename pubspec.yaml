@@ -36,6 +36,8 @@ dependencies:
 
   # Other.
   change_app_package_name:
+  flutter_localizations: # 追加
+    sdk: flutter
   intl:
   roggle:
   url_launcher:

@@ -32,8 +32,8 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-  # 下記のエラーが出るのでコメントアウト。
-  # `Unable to find a target named `RunnerTests` in project `Runner.xcodeproj`, did find `Runner`.`
+  # 以下エラーが出るのでコメントアウト
+  # `Unable to find a target named `RunnerTests` in project `Runner.xcodeproj`, did find `Runner`.``
   # target 'RunnerTests' do
   #   inherit! :search_paths
   # end
