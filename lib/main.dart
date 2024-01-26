@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -5,32 +6,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:universal_html/html.dart';
+import 'package:universal_html/js.dart';
 
 import 'app.dart';
 import 'core/repository/package_info/package_info_repository.dart';
-import 'util/flavor.dart';
+import 'feature/flavor/flavor.dart';
 import 'util/logger.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  late final PackageInfo packageInfo;
 
-  await (
-    /// Firebase.
-    Firebase.initializeApp(),
+  final flavor = Flavor.fromEnvironment;
 
-    /// 縦固定
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]),
+  /// Firebase.
+  await Firebase.initializeApp(options: flavor.firebaseOptions);
 
-    Future(() async {
-      packageInfo = await PackageInfo.fromPlatform();
-    }),
-  ).wait;
+  /// 画面を縦方向に固定する。
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-  logger.i(Flavor.environment);
+  final packageInfo = await PackageInfo.fromPlatform();
+
+  if (kIsWeb) {
+    context['flavor'] = const String.fromEnvironment('flavor');
+    document.dispatchEvent(CustomEvent('dart_loaded'));
+  }
+
+  logger.i(flavor);
 
   /// Crashlytics.
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
@@ -44,8 +49,11 @@ Future<void> main() async {
       overrides: [
         packageInfoRepositoryProvider
             .overrideWithValue(PackageInfoRepository(packageInfo)),
+        flavorProvider.overrideWithValue(flavor),
       ],
-      child: const App(),
+      child: DevicePreview(
+        builder: (context) => const App(),
+      ),
     ),
   );
 }

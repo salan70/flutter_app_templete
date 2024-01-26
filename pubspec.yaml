@@ -36,10 +36,12 @@ dependencies:
 
   # Other.
   change_app_package_name:
+  device_preview:
   flutter_localizations: # 追加
     sdk: flutter
   intl:
   roggle:
+  universal_html:
   url_launcher:
 
 dev_dependencies:  

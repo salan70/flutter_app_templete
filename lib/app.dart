@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,6 +23,9 @@ class App extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      // DevicePreview 関連の設定。
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       home: const Scaffold(
         body: Center(
           child: Text('テンプレアプリ'), // TODO(toda): アプリ名を設定する。

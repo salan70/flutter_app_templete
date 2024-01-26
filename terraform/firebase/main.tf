@@ -76,6 +76,15 @@ resource "google_firebase_apple_app" "default" {
   ]
 }
 
+# Firebase Web App.
+resource "google_firebase_web_app" "default" {
+  provider        = google-beta
+  project         = google_project.default.project_id
+  display_name    = "web_app"
+
+  depends_on = [google_firebase_project.default]
+}
+
 # 各種モジュールに locals ファイルを渡す。
 ## Firebase Authentication.
 module "authentication" {
