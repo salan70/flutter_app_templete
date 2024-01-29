@@ -25,7 +25,7 @@ class MyButtonController {
           'button_name': buttonName,
         },
       );
-    } on Exception catch (e, s) {
+    } on Exception catch (e, _) {
       logger.e('ボタンタップのログを送信時にエラーが発生。');
     }
   }

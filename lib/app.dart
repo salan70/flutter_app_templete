@@ -12,7 +12,7 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      title: 'テンプレアプリ', // TODO(toda): アプリ名を設定する。
+      title: 'テンプレアプリ', // TODO(me): アプリ名を設定する。
       theme: getAppTheme(),
       darkTheme: getAppThemeDark(),
       debugShowCheckedModeBanner: false,
