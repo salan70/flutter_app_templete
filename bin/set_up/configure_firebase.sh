@@ -3,14 +3,14 @@
 source .env
 
 # DOMAIN と APP_NAME から Firebase プロジェクト ID を生成する。
-# 例: com.toda.TempleteApp → toda-template-app.
+# 例: com.toda.TemplateApp → toda-template-app.
 FIREBASE_PROJECT_ID="${DOMAIN#com.}-${APP_NAME//_/-}"
 
 # プロジェクト ID を出力する。
 echo "[$FIREBASE_PROJECT_ID-prod(dev)] という ID の Firebase プロジェクトの構成ファイルを出力します。"
 
 # APP_NAME から有効な iOS バンドル ID を生成する。
-# 例: templete_app → TempleteApp.
+# 例: template_app → TemplateApp.
 IOS_BUNDLE_ID=$(echo "$APP_NAME" | awk -F'_' '{for (i=1; i<=NF; i++) $i=toupper(substr($i, 1, 1)) substr($i, 2)} 1' OFS='')
 
 # * -- flutterfire configure の実行 -- * #

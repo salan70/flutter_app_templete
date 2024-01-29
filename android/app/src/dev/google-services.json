@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "964480104378",
-    "project_id": "toda-templete-app-dev",
-    "storage_bucket": "toda-templete-app-dev.appspot.com"
+    "project_number": "521399014343",
+    "project_id": "toda-template-app-dev",
+    "storage_bucket": "toda-template-app-dev.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:964480104378:android:23f27044292f22a9ec4f83",
+        "mobilesdk_app_id": "1:521399014343:android:3fc077dcccab2c0fbcbfe2",
         "android_client_info": {
-          "package_name": "com.toda.templete_app.dev"
+          "package_name": "com.toda.template_app.dev"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBZUyuuLZVvAWhWLXu3jxMxhHoErUzclKc"
+          "current_key": "AIzaSyAdK6o-5aD32fBxq5QJA1HMygp4FyOsf8Q"
         }
       ],
       "services": {

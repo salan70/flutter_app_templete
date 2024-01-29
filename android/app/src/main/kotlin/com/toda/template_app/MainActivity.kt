@@ -1,4 +1,4 @@
-package com.toda.templete_app
+package com.toda.template_app
 
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
