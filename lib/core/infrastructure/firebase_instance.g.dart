@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'flavor.dart';
+part of 'firebase_instance.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flavorHash() => r'60917d813dab816ef69fb80b45cfe69061a0f9cc';
+String _$analyticsHash() => r'fce208844f3a304fc84790b7a29747afc05f6316';
 
-/// See also [flavor].
-@ProviderFor(flavor)
-final flavorProvider = Provider<Flavor>.internal(
-  flavor,
-  name: r'flavorProvider',
+/// See also [analytics].
+@ProviderFor(analytics)
+final analyticsProvider = AutoDisposeProvider<FirebaseAnalytics>.internal(
+  analytics,
+  name: r'analyticsProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$flavorHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$analyticsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef FlavorRef = ProviderRef<Flavor>;
+typedef AnalyticsRef = AutoDisposeProviderRef<FirebaseAnalytics>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

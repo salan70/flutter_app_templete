@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/presentation/button/my_button.dart';
 import 'util/res/theme.dart';
 
 class App extends ConsumerWidget {
@@ -26,9 +27,21 @@ class App extends ConsumerWidget {
       // DevicePreview 関連の設定。
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      home: const Scaffold(
+      home: Scaffold(
         body: Center(
-          child: Text('テンプレアプリ'), // TODO(toda): アプリ名を設定する。
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('テンプレアプリ'),
+              MyButton(
+                buttonName: 'top_button',
+                onPressed: () {
+                  throw UnimplementedError();
+                },
+                child: const Text('トップボタン'),
+              ),
+            ],
+          ),
         ),
       ),
     );

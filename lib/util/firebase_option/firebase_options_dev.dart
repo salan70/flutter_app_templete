@@ -2,7 +2,7 @@
 // ignore_for_file: lines_longer_than_80_chars, avoid_classes_with_only_static_members
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
-    show TargetPlatform, defaultTargetPlatform, kIsWeb;
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -66,10 +66,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAwhR7t_46w3tfrcplXFO7VQ14MwHwpHbk',
-    appId: '1:964480104378:ios:1fa0b29f31b39fdbec4f83',
+    appId: '1:964480104378:ios:63ba00ef2d7d4570ec4f83',
     messagingSenderId: '964480104378',
     projectId: 'toda-templete-app-dev',
     storageBucket: 'toda-templete-app-dev.appspot.com',
-    iosBundleId: 'TempleteApp.dev',
+    iosBundleId: 'com.toda.TempleteApp.dev',
   );
 }

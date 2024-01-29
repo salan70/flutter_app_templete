@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../repository/firebase_auth/firebase_auth_repository.dart';
+import '../../infrastructure/repository/firebase_auth/firebase_auth_repository.dart';
 
 part 'auth_state_controller.g.dart';
 

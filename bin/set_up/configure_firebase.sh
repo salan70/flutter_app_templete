@@ -13,15 +13,14 @@ echo "[$FIREBASE_PROJECT_ID-prod(dev)] という ID の Firebase プロジェク
 # 例: templete_app → TempleteApp.
 IOS_BUNDLE_ID=$(echo "$APP_NAME" | awk -F'_' '{for (i=1; i<=NF; i++) $i=toupper(substr($i, 1, 1)) substr($i, 2)} 1' OFS='')
 
-# * -- flutterfire configure の実行 -- *
+# * -- flutterfire configure の実行 -- * #
 # prod.
 flutterfire configure \
   --project="${FIREBASE_PROJECT_ID}-prod" \
   --out=lib/util/firebase_option/firebase_options_prod.dart \
   --platforms=android,ios,web \
-  --ios-bundle-id="${IOS_BUNDLE_ID}" \
+  --ios-bundle-id="${DOMAIN}.${IOS_BUNDLE_ID}" \
   --android-package-name="${DOMAIN}.${APP_NAME}" \
-  --no-apply-gradle-plugins \
   --no-app-id-json
 
 # dev.
@@ -29,7 +28,6 @@ flutterfire configure \
   --project="${FIREBASE_PROJECT_ID}-dev" \
   --out=lib/util/firebase_option/firebase_options_dev.dart \
   --platforms=android,ios,web \
-  --ios-bundle-id="${IOS_BUNDLE_ID}.dev" \
+  --ios-bundle-id="${DOMAIN}.${IOS_BUNDLE_ID}.dev" \
   --android-package-name="${DOMAIN}.${APP_NAME}.dev" \
-  --no-apply-gradle-plugins \
   --no-app-id-json

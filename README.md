@@ -14,6 +14,19 @@ brew install  jq
 fvm dart pub global activate flutterfire_cli
 ```
 
+### コマンド実行
+
+```sh
+sh bin/set_up/set_up.sh
+```
+
+### Firebase 設定ファイルのダウンロード
+
+1. Firebase コンソール上で、各環境の Android アプリ用の設定ファイルをダウンロードする
+2. ダウンロードした設定ファイルを android/app/src/dev(prod) に格納する
+
+※ iOS は不要。
+
 ## 実装済み
 
 - Firebase を利用 (Authentication, Firestore, Functions, Analytics, Crashlytics)

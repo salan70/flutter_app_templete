@@ -66,10 +66,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBKizRF8CGwO_WN_kOe9ExCrjlZlEfO-a8',
-    appId: '1:389752019580:ios:b0cccd6e817d93c28e47f9',
+    appId: '1:389752019580:ios:0b46c188cdb70b3d8e47f9',
     messagingSenderId: '389752019580',
     projectId: 'toda-templete-app-prod',
     storageBucket: 'toda-templete-app-prod.appspot.com',
-    iosBundleId: 'TempleteApp',
+    iosBundleId: 'com.toda.TempleteApp',
   );
 }
