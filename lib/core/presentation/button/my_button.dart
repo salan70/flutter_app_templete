@@ -25,10 +25,16 @@ class MyButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return FilledButton(
-      onPressed: () async {
-        await ref.read(myButtonControllerProvider).logTapButton(buttonName);
-        onPressed?.call();
-      },
+      // `onPressed` が null の場合はボタンを押せないようにする。
+      onPressed: onPressed == null
+          ? null
+          : () async {
+              await ref
+                  .read(myButtonControllerProvider)
+                  .logTapButton(buttonName);
+
+              onPressed!();
+            },
       child: child,
     );
   }
