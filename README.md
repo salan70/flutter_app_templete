@@ -1,6 +1,31 @@
-# flutter_app_template
+# templete_app
 
 Flutter + Firebase アプリのテンプレート。
+
+## 使い方
+
+### 事前準備
+
+```sh
+# jq をインストールする。
+brew install  jq
+
+# flutterfire_cli をインストールする。
+fvm dart pub global activate flutterfire_cli
+```
+
+### コマンド実行
+
+```sh
+sh bin/set_up/set_up.sh
+```
+
+### Firebase 設定ファイルのダウンロード
+
+1. Firebase コンソール上で、各環境の Android アプリ用の設定ファイルをダウンロードする
+2. ダウンロードした設定ファイルを android/app/src/dev(prod) に格納する
+
+※ iOS は不要。
 
 ## 実装済み
 
@@ -57,13 +82,13 @@ Flutter + Firebase アプリのテンプレート。
 - 開発
 
   ```sh
-  flutter run --debug --dart-define-from-file=dart_defines/dev.json
+  fvm flutter run --debug --dart-define-from-file=dart_defines/dev.json
   ```
 
 - 本番
 
   ```sh
-  flutter run --debug --dart-define-from-file=dart_defines/prod.json
+  fvm flutter run --debug --dart-define-from-file=dart_defines/prod.json
   ```
 
 ## 新規プロジェクトへの移行方法
@@ -82,80 +107,6 @@ Flutter + Firebase アプリのテンプレート。
     rm -rf .git
     ```
 
-3. 変更したいアプリ名、パッケージ名、プロジェクト名 にする。以下の通り手動で修正するか、[change_app_package_name](https://pub.dev/packages/change_app_package_name)を使って自動で修正する。
+3. 問題なければ新しい git repository を作成して本プロジェクトをプッシュする。
 
-    - アプリ名を変更する
-      - [dart-definesディレクトリ](./dart_defines/)内にあるjsonファイルの `appName` を変更する
-  
-    - `com.example.app` のパッケージ名を変更する
-      - iOS:
-
-        `Xcode > Runner > TARGETS Runner > Build Settings` の `Product Bundle Identifier` を変更。
-        Debug, Profile, Release の全てを変更する。`$(appIdSuffix)`はそのままにしてください。
-        ![dev](./doc/images/product_bundle_identifier.png)
-
-      - Android:
-
-        - android/app/build.gradle
-          - [applicationId](./android/app/build.gradle#L63)
-        - AndroidManifest.xml - package
-
-          - [main](./android/app/src/main/AndroidManifest.xml#L2)
-          - [debug](./android/app/src/debug/AndroidManifest.xml#L2)
-          - [profile](./android/app/src/profile/AndroidManifest.xml#L2)
-
-        - MainActivity.kt
-          - [package](./android/app/src/main/kotlin/com/example/app/MainActivity.kt#L1)
-
-        - ScreenReaderPlugin.kt
-          - [package1](./android/app/src/main/kotlin/com/example/app/ScreenReaderPlugin.kt#L1)
-          - [package2](./android/app/src/main/kotlin/com/example/app/ScreenReaderPlugin.kt#L15)
-          - [package3](./android/app/src/main/kotlin/com/example/app/ScreenReaderPlugin.kt#L25)
-
-        - kotlin 配下のディレクトリ名を変更する
-
-          （例）`com.example.app` から `com.never.jp` へ変更した場合
-
-          ```md
-            変更前: android/app/src/main/kotlin/com/example/app
-            変更後: android/app/src/main/kotlin/com/never/jp
-          ```
-
-    - プロジェクト名を変更する
-      - [pubspec.yaml の name](./pubspec.yaml#L1)
-
-4. 新しい Firebase プロジェクトを構築する。
-    開発環境、本番環境の 2 種類用意する。なお、開発環境のパッケージ名の末尾は必ず `.dev` を付与する。
-
-    - [Firebase の構築方法](https://firebase.flutter.dev/docs/overview)
-
-    構築した Firebase の設定ファイルを以下の場所へ設置する
-
-    - Android
-
-      ```md
-      # 開発環境
-      android/app/src/dev/google-services.json
-      # 本番環境
-      android/app/src/prod/google-services.json
-      ```
-
-    - iOS
-
-      ```md
-      # 開発環境
-      ios/dev/GoogleService-Info.plist
-      # 本番環境
-      ios/prod/GoogleService-Info.plist
-      ```
-
-5. Firebase コンソールから匿名認証を 開発環境、本番環境共に ON にする
-
-6. Flutter のライブラリを取り込む。 pub get を実行する。
-    利用するバージョンを固定にするため、[pubspec.lock](./pubspec.lock) 内のプラグインのバージョンを見て [pubspec.yaml](./pubspec.yaml) のプラグインのバージョンを指定する。
-
-7. [実行コマンド](#実行コマンド)を用いて動作確認する。
-
-8. 問題なければ新しい git repository を作成して本プロジェクトをプッシュする。
-
-9. あとは良しなに使わないプラグインやコードを削除して開発を進めてください。
+4. あとは良しなに使わないプラグインやコードを削除して開発を進めてください。

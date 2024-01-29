@@ -47,10 +47,6 @@ app.*.map.json
 
 ios/Flutter/DartDefines.xcconfig
 
-# Firebase
-android/**/google-services.json
-ios/**/GoogleService-Info.plist
-
 # Mason
 mason-lock.json
 .mason
@@ -58,3 +54,5 @@ mason-lock.json
 
 # Test
 coverage/
+
+.env

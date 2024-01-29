@@ -1,0 +1,8 @@
+{
+  "minRequiredAppVersionAndroid": {
+    "stringValue": "1.0.0"
+  },
+  "minRequiredAppVersionIos": {
+    "stringValue": "1.0.0"
+  }
+}

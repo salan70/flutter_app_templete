@@ -1,61 +1,47 @@
-import 'dart:io';
-
+import 'package:device_preview/device_preview.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+import 'package:universal_html/html.dart';
+import 'package:universal_html/js.dart';
 
 import 'app.dart';
-import 'core/repositories/package_info/package_info_repository.dart';
-import 'core/repositories/shared_preferences/shared_preference_repository.dart';
-import 'core/use_cases/images/image_compress.dart';
-import 'core/utils/flavor.dart';
-import 'core/utils/logger.dart';
+import 'core/infrastructure/repository/package_info/package_info_repository.dart';
+import 'feature/flavor/flavor.dart';
+import 'util/logger.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  late final PackageInfo packageInfo;
-  late final SharedPreferences sharedPreferences;
-  late final Directory tempDirectory;
-  Logger.configure();
 
-  await (
-    /// Firebase
-    Firebase.initializeApp(),
+  final flavor = Flavor.fromEnvironment;
 
-    /// 縦固定
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]),
+  /// 画面を縦方向に固定する。
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-    Future(() async {
-      packageInfo = await PackageInfo.fromPlatform();
-    }),
-    Future(() async {
-      sharedPreferences = await SharedPreferences.getInstance();
-    }),
-    Future(() async {
-      tz.initializeTimeZones();
-      final currentTimeZone = await FlutterNativeTimezone.getLocalTimezone();
-      tz.setLocalLocation(tz.getLocation(currentTimeZone));
-    }),
-    Future(() async {
-      tempDirectory = await getTemporaryDirectory();
-    }),
-  ).wait;
+  final packageInfo = await PackageInfo.fromPlatform();
 
-  logger.info(Flavor.environment);
+  if (kIsWeb) {
+    context['flavor'] = const String.fromEnvironment('flavor');
+    document.dispatchEvent(CustomEvent('dart_loaded'));
+  }
 
-  /// Crashlytics
+  logger.i(flavor);
+
+  // * -- Firebase 関連の初期化処理 -- * //
+  await Firebase.initializeApp(options: flavor.firebaseOptions);
+
+  // Analytics.
+  await FirebaseAnalytics.instance.logEvent(name: 'launch_app');
+
+  // Crashlytics.
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
@@ -65,13 +51,15 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        sharedPreferencesRepositoryProvider
-            .overrideWithValue(SharedPreferencesRepository(sharedPreferences)),
         packageInfoRepositoryProvider
             .overrideWithValue(PackageInfoRepository(packageInfo)),
-        imageCompressProvider.overrideWithValue(ImageCompress(tempDirectory)),
+        flavorProvider.overrideWithValue(flavor),
       ],
-      child: const App(),
+      child: DevicePreview(
+        // Web かつ release モードでない場合のみ有効にする。
+        enabled: kIsWeb && !kReleaseMode,
+        builder: (context) => const App(),
+      ),
     ),
   );
 }

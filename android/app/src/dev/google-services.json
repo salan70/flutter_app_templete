@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "964480104378",
+    "project_id": "toda-templete-app-dev",
+    "storage_bucket": "toda-templete-app-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964480104378:android:23f27044292f22a9ec4f83",
+        "android_client_info": {
+          "package_name": "com.toda.templete_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZUyuuLZVvAWhWLXu3jxMxhHoErUzclKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

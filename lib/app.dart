@@ -1,37 +1,49 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'core/res/theme.dart';
-import 'core/router/router.dart';
-import 'core/widgets/have_scroll_bar_behavior.dart';
+import 'core/presentation/button/my_button.dart';
+import 'util/res/theme.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = ref.watch(routerProvider);
-    return MaterialApp.router(
-      title: 'テンプレアプリ', // TODO(shohei): アプリ名を設定
-
-      /// スクロールバーをデフォルトで付与したい場合は設定する
-      scrollBehavior: const HaveScrollBarBehavior(),
-
+    return MaterialApp(
+      title: 'テンプレアプリ', // TODO(toda): アプリ名を設定する。
       theme: getAppTheme(),
       darkTheme: getAppThemeDark(),
       debugShowCheckedModeBanner: false,
+      supportedLocales: const [
+        Locale('ja', 'JP'),
+      ],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('ja', 'JP'),
-      ],
-      routeInformationParser: router.routeInformationParser,
-      routerDelegate: router.routerDelegate,
-      routeInformationProvider: router.routeInformationProvider,
+      // DevicePreview 関連の設定。
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('テンプレアプリ'),
+              MyButton(
+                buttonName: 'top_button',
+                onPressed: () {
+                  throw UnimplementedError();
+                },
+                child: const Text('トップボタン'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

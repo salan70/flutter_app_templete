@@ -60,7 +60,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.app"
+        applicationId "com.toda.templete_app"
         applicationIdSuffix appIdSuffix
         minSdkVersion 24
         targetSdkVersion flutter.targetSdkVersion
