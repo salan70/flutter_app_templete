@@ -9,8 +9,10 @@ analyzer:
     - lib/**/l10n/*.dart
     - lib/gen/*.dart
     - lib/**/gen/*.dart
+    - lib/util/firebase_option/*.dart
   errors:
     invalid_annotation_target: ignore
+    todo: info
 linter:
   rules:
     sort_pub_dependencies: false

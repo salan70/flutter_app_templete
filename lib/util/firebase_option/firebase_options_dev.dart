@@ -2,7 +2,7 @@
 // ignore_for_file: lines_longer_than_80_chars, avoid_classes_with_only_static_members
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
-    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+    show TargetPlatform, defaultTargetPlatform, kIsWeb;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -47,29 +47,28 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCsvo7u99BMwWi3AAUZmegRGoYGAGZnJVk',
-    appId: '1:964480104378:web:79cbc2f24a727b5fec4f83',
-    messagingSenderId: '964480104378',
-    projectId: 'toda-templete-app-dev',
-    authDomain: 'toda-templete-app-dev.firebaseapp.com',
-    storageBucket: 'toda-templete-app-dev.appspot.com',
-    measurementId: 'G-JR4Z8HZ5VJ',
+    apiKey: 'AIzaSyAQUj8hov_sH-av1MZgcj81aJN4fanlVfQ',
+    appId: '1:521399014343:web:cc3de3872dccbb8abcbfe2',
+    messagingSenderId: '521399014343',
+    projectId: 'toda-template-app-dev',
+    authDomain: 'toda-template-app-dev.firebaseapp.com',
+    storageBucket: 'toda-template-app-dev.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBZUyuuLZVvAWhWLXu3jxMxhHoErUzclKc',
-    appId: '1:964480104378:android:23f27044292f22a9ec4f83',
-    messagingSenderId: '964480104378',
-    projectId: 'toda-templete-app-dev',
-    storageBucket: 'toda-templete-app-dev.appspot.com',
+    apiKey: 'AIzaSyAdK6o-5aD32fBxq5QJA1HMygp4FyOsf8Q',
+    appId: '1:521399014343:android:3fc077dcccab2c0fbcbfe2',
+    messagingSenderId: '521399014343',
+    projectId: 'toda-template-app-dev',
+    storageBucket: 'toda-template-app-dev.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAwhR7t_46w3tfrcplXFO7VQ14MwHwpHbk',
-    appId: '1:964480104378:ios:63ba00ef2d7d4570ec4f83',
-    messagingSenderId: '964480104378',
-    projectId: 'toda-templete-app-dev',
-    storageBucket: 'toda-templete-app-dev.appspot.com',
-    iosBundleId: 'com.toda.TempleteApp.dev',
+    apiKey: 'AIzaSyCTuegUxZwiU6bbZfEr3nRrtqzQS6vKl9I',
+    appId: '1:521399014343:ios:d199dccde3051506bcbfe2',
+    messagingSenderId: '521399014343',
+    projectId: 'toda-template-app-dev',
+    storageBucket: 'toda-template-app-dev.appspot.com',
+    iosBundleId: 'com.toda.TemplateApp.dev',
   );
 }

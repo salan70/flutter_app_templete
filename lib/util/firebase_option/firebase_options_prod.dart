@@ -47,29 +47,28 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBom6FzOb5gIDDGA9qaZLxTTMgmJCJnn8E',
-    appId: '1:389752019580:web:3c02914c2b7de94c8e47f9',
-    messagingSenderId: '389752019580',
-    projectId: 'toda-templete-app-prod',
-    authDomain: 'toda-templete-app-prod.firebaseapp.com',
-    storageBucket: 'toda-templete-app-prod.appspot.com',
-    measurementId: 'G-X1Z1DXGB93',
+    apiKey: 'AIzaSyA1iIMoMrvjHRbDYsWbBzVPQXQYK72V7Us',
+    appId: '1:1063447347632:web:b245a8655743a584139675',
+    messagingSenderId: '1063447347632',
+    projectId: 'toda-template-app-prod',
+    authDomain: 'toda-template-app-prod.firebaseapp.com',
+    storageBucket: 'toda-template-app-prod.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA22LAwyfZWLy5EjuGMM4wS1Ifdh0MjtG8',
-    appId: '1:389752019580:android:97e24d0fe81a56b28e47f9',
-    messagingSenderId: '389752019580',
-    projectId: 'toda-templete-app-prod',
-    storageBucket: 'toda-templete-app-prod.appspot.com',
+    apiKey: 'AIzaSyAfGZyeOjIwDaXzXd1jsq8buju7h6TRyYg',
+    appId: '1:1063447347632:android:2c4b8839eefa9674139675',
+    messagingSenderId: '1063447347632',
+    projectId: 'toda-template-app-prod',
+    storageBucket: 'toda-template-app-prod.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBKizRF8CGwO_WN_kOe9ExCrjlZlEfO-a8',
-    appId: '1:389752019580:ios:0b46c188cdb70b3d8e47f9',
-    messagingSenderId: '389752019580',
-    projectId: 'toda-templete-app-prod',
-    storageBucket: 'toda-templete-app-prod.appspot.com',
-    iosBundleId: 'com.toda.TempleteApp',
+    apiKey: 'AIzaSyDYd7qAYh0xXusiOLb_wmkQfUMVZg3Frfs',
+    appId: '1:1063447347632:ios:5501b7780f66adbf139675',
+    messagingSenderId: '1063447347632',
+    projectId: 'toda-template-app-prod',
+    storageBucket: 'toda-template-app-prod.appspot.com',
+    iosBundleId: 'com.toda.TemplateApp',
   );
 }

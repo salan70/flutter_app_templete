@@ -1,4 +1,4 @@
-# templete_app
+# template_app
 
 Flutter + Firebase アプリのテンプレート。
 
