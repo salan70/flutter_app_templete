@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../util/logger.dart';
-import '../../infrastructure/firebase_instance.dart';
+import '../../../../util/logger.dart';
+import '../../../infrastructure/firebase_instance.dart';
 
 part 'my_button_controller.g.dart';
 
