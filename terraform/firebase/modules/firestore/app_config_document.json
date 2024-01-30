@@ -4,5 +4,8 @@
   },
   "minRequiredAppVersionIos": {
     "stringValue": "1.0.0"
+  },
+  "inMaintenance": {
+    "booleanValue": false
   }
 }
