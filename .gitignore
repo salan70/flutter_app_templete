@@ -56,3 +56,4 @@ mason-lock.json
 coverage/
 
 .env
+android/app/google-services.json
