@@ -18,7 +18,7 @@ import 'util/logger.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final flavor = Flavor.fromEnvironment;
+  var flavor = Flavor.fromEnvironment;
 
   /// 画面を縦方向に固定する。
   await SystemChrome.setPreferredOrientations([
