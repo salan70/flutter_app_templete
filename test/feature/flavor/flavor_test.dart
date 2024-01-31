@@ -18,7 +18,7 @@ void main() {
 
     test('prod', () {
       // * Arrange & Act
-      final actual = Flavor.dev.firebaseOptions;
+      final actual = Flavor.prod.firebaseOptions;
       final expected = prod_options.DefaultFirebaseOptions.currentPlatform;
 
       // * Assert
