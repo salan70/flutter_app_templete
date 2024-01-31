@@ -18,7 +18,7 @@ class TopPage extends StatelessWidget {
             MyButton(
               buttonName: 'top_button',
               onPressed: () {
-                throw UnimplementedError();
+                // TODO(me): タップ時の処理を書く。
               },
               child: const Text('トップボタン'),
             ),

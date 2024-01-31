@@ -66,6 +66,7 @@ class ErrorAndRetryWidget extends ConsumerWidget {
                   MyButton(
                     buttonName: 'inquire_button_in_error_and_retry_widget',
                     onPressed: () {
+                      // TODO(me): タップ時の処理を書く。
                       // final currentUserId = ref.read(userIdProvider);
 
                       // String? publicId;

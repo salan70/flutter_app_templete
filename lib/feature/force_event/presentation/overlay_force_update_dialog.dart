@@ -28,7 +28,7 @@ class OverlayForceUpdateDialog extends ConsumerWidget {
           MyButton(
             buttonName: 'update_button_in_force_update_dialog',
             onPressed: () {
-              // platform に応じた URL を開く。
+              // TODO(me): タップ時の処理を書く。
               // defaultTargetPlatform.when(
               //   onIOS: () => ref
               //       .read(launchUrlControllerProvider)

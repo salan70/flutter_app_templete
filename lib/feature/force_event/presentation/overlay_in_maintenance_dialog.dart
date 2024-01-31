@@ -34,7 +34,7 @@ class OverlayInMaintenanceDialog extends StatelessWidget {
           MyButton(
             buttonName: 'latest_information_button_in_maintenance_dialog',
             onPressed: () {
-              // todo: 最新情報の URL を開く。
+              // TODO(me): タップ時の処理を書く。
               // ref.read(launchUrlControllerProvider).launchURL(
               //       latestInformationPageUrl,
               //       inBaseRoute: false,
