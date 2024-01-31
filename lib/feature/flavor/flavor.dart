@@ -29,7 +29,7 @@ enum Flavor {
 
   /// [Flavor] に応じた [FirebaseOptions] を返す。
   FirebaseOptions get firebaseOptions {
-    switch (Flavor.fromEnvironment) {
+    switch (this) {
       case Flavor.dev:
         return dev_options.DefaultFirebaseOptions.currentPlatform;
       case Flavor.prod:
