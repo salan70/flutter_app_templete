@@ -13,7 +13,6 @@ class OverlayForceUpdateDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // todo: 強制アップデートが不要な場合、 SizedBox.shrink() で空の Widget を返す？
     return BaseOverlayDialog(
       child: Column(
         mainAxisSize: MainAxisSize.min,
