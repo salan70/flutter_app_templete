@@ -6,10 +6,13 @@ import './gen/colors.gen.dart';
 /// Migrating a Flutter app to Material 3
 /// https://blog.codemagic.io/migrating-a-flutter-app-to-material-3/
 
+const _lineFontFamily = 'LINESeedJP';
+
 ThemeData getAppTheme() {
   const primaryColor = ColorName.primary;
 
   final base = ThemeData(
+    fontFamily: _lineFontFamily,
     useMaterial3: true,
     primaryColor: primaryColor,
     colorScheme: ColorScheme.fromSeed(
@@ -66,6 +69,7 @@ ThemeData getAppThemeDark() {
   const primaryColor = ColorName.primary;
 
   final base = ThemeData(
+    fontFamily: _lineFontFamily,
     useMaterial3: true,
     primaryColor: primaryColor,
     colorScheme: ColorScheme.fromSeed(
