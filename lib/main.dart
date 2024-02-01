@@ -12,7 +12,7 @@ import 'package:universal_html/js.dart';
 
 import 'app.dart';
 import 'core/infrastructure/repository/package_info/package_info_repository.dart';
-import 'feature/flavor/flavor.dart';
+import 'feature/flavor/infrastructure/flavor.dart';
 import 'util/logger.dart';
 
 Future<void> main() async {

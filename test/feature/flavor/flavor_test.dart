@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template_app/feature/flavor/flavor.dart';
+import 'package:template_app/feature/flavor/infrastructure/flavor.dart';
 import 'package:template_app/util/firebase_option/firebase_options_dev.dart'
     as dev_options;
 import 'package:template_app/util/firebase_option/firebase_options_prod.dart'
