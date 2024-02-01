@@ -84,7 +84,6 @@ Widget? _handleMaintenance({
   return asyncInMaintenance.when(
     loading: () => const Scaffold(body: OverlayLoadingDialog()),
     data: (inMaintenance) {
-      logger.i('メンテナンス中かどうか: $inMaintenance');
       // ** メンテナンス中の場合
       if (inMaintenance) {
         return Stack(
