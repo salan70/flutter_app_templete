@@ -23,13 +23,7 @@ class SettingPage extends ConsumerWidget {
           ),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.only(
-          left: 24,
-          right: 20,
-        ),
-        child: SettingItemList(),
-      ),
+      body: const SettingItemList(),
     );
   }
 }

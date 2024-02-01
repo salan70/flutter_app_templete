@@ -11,6 +11,9 @@ import '../../launch_url/util/url_constant.dart';
 class SettingItemList extends ConsumerWidget {
   const SettingItemList({super.key});
 
+  static const double _leadingWidth = 20;
+  static const double _trailingWidth = 16;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appVersion = ref.watch(packageInfoRepositoryProvider).appVersion;
@@ -18,12 +21,16 @@ class SettingItemList extends ConsumerWidget {
 
     return ListView(
       children: [
-        const Gap(24),
-
+        const Gap(12),
         // * --------- サポート --------- * //
-        const _SettingHeadlineWidget(title: 'サポート'),
-
+        const _SettingHeadlineWidget(
+          title: 'サポート',
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
+        ),
         _SettingTileButton(
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
           trailingIcon: const Icon(CupertinoIcons.mail),
           label: 'お問い合わせ',
           onTap: () {
@@ -38,8 +45,9 @@ class SettingItemList extends ConsumerWidget {
             //       .launchURL(url, inBaseRoute: false);
           },
         ),
-        const Gap(24),
         _SettingTileButton(
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
           trailingIcon: const Icon(CupertinoIcons.star),
           label: 'レビューで応援する',
           onTap: () {
@@ -49,27 +57,34 @@ class SettingItemList extends ConsumerWidget {
             //   .openStoreListing(appStoreId: appleId);
           },
         ),
-        const Gap(32),
 
         // * ------ アプリについて ------ * //
-        const _SettingHeadlineWidget(title: 'アプリについて'),
+        const _SettingHeadlineWidget(
+          title: 'アプリについて',
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
+        ),
         _SettingTileButton(
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
           trailingIcon: const Icon(CupertinoIcons.doc_text),
           label: '利用規約',
           onTap: () {
             launchUrlService.launchUrlInApp(termUrl);
           },
         ),
-        const Gap(24),
         _SettingTileButton(
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
           trailingIcon: const Icon(CupertinoIcons.exclamationmark_shield),
           label: 'プライバシーポリシー',
           onTap: () {
             launchUrlService.launchUrlInApp(privacyPolicyUrl);
           },
         ),
-        const Gap(24),
         _SettingTileButton(
+          leadingWidth: _leadingWidth,
+          trailingWidth: _trailingWidth,
           trailingIcon: const Icon(CupertinoIcons.tag),
           label: 'ライセンス',
           onTap: () async {
@@ -77,9 +92,10 @@ class SettingItemList extends ConsumerWidget {
             // await context.navigateTo(const MyLicenseRoute());
           },
         ),
-        const Gap(24),
+        const Gap(12),
         Row(
           children: [
+            const Gap(_leadingWidth),
             const Icon(CupertinoIcons.info),
             const Gap(16),
             Expanded(
@@ -95,7 +111,7 @@ class SettingItemList extends ConsumerWidget {
                 style: context.bodyMedium,
               ),
             ),
-            const Gap(4),
+            const Gap(_trailingWidth + 4),
           ],
         ),
         const Gap(40),
@@ -106,21 +122,33 @@ class SettingItemList extends ConsumerWidget {
 
 /// 設定の各項目の見出し。
 class _SettingHeadlineWidget extends StatelessWidget {
-  const _SettingHeadlineWidget({required this.title});
+  const _SettingHeadlineWidget({
+    required this.title,
+    required this.leadingWidth,
+    required this.trailingWidth,
+  });
 
   final String title;
+  final double leadingWidth;
+  final double trailingWidth;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: context.titleSmall,
-        ),
-        const Gap(8),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(
+        top: 16,
+        right: trailingWidth,
+        left: leadingWidth,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: context.titleSmall,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -128,11 +156,15 @@ class _SettingHeadlineWidget extends StatelessWidget {
 /// 全体をタップできる設定項目。
 class _SettingTileButton extends StatelessWidget {
   const _SettingTileButton({
+    required this.leadingWidth,
+    required this.trailingWidth,
     required this.trailingIcon,
     required this.label,
     required this.onTap,
   });
 
+  final double leadingWidth;
+  final double trailingWidth;
   final Icon trailingIcon;
   final String label;
   final GestureTapCallback onTap;
@@ -141,25 +173,33 @@ class _SettingTileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Row(
-        children: [
-          trailingIcon,
-          const Gap(16),
-          Expanded(
-            child: Text(
-              label,
-              style: context.titleMedium,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: 12,
+          right: trailingWidth,
+          bottom: 12,
+          left: leadingWidth,
+        ),
+        child: Row(
+          children: [
+            trailingIcon,
+            const Gap(16),
+            Expanded(
+              child: Text(
+                label,
+                style: context.titleMedium,
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Icon(
-              CupertinoIcons.chevron_forward,
-              size: 20,
-              color: context.colorScheme.onSurfaceVariant,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Icon(
+                CupertinoIcons.chevron_forward,
+                size: 20,
+                color: context.colorScheme.onSurfaceVariant,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
