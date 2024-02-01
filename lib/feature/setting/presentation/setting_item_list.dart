@@ -21,12 +21,9 @@ class SettingItemList extends ConsumerWidget {
         const Gap(24),
 
         // * --------- サポート --------- * //
-        Text(
-          'サポート',
-          style: context.titleSmall,
-        ),
-        const Gap(8),
-        SettingTileButton(
+        const _SettingHeadlineWidget(title: 'サポート'),
+
+        _SettingTileButton(
           trailingIcon: const Icon(CupertinoIcons.mail),
           label: 'お問い合わせ',
           onTap: () {
@@ -42,7 +39,7 @@ class SettingItemList extends ConsumerWidget {
           },
         ),
         const Gap(24),
-        SettingTileButton(
+        _SettingTileButton(
           trailingIcon: const Icon(CupertinoIcons.star),
           label: 'レビューで応援する',
           onTap: () {
@@ -55,12 +52,8 @@ class SettingItemList extends ConsumerWidget {
         const Gap(32),
 
         // * ------ アプリについて ------ * //
-        Text(
-          'アプリについて',
-          style: context.titleSmall,
-        ),
-        const Gap(8),
-        SettingTileButton(
+        const _SettingHeadlineWidget(title: 'アプリについて'),
+        _SettingTileButton(
           trailingIcon: const Icon(CupertinoIcons.doc_text),
           label: '利用規約',
           onTap: () {
@@ -68,7 +61,7 @@ class SettingItemList extends ConsumerWidget {
           },
         ),
         const Gap(24),
-        SettingTileButton(
+        _SettingTileButton(
           trailingIcon: const Icon(CupertinoIcons.exclamationmark_shield),
           label: 'プライバシーポリシー',
           onTap: () {
@@ -76,7 +69,7 @@ class SettingItemList extends ConsumerWidget {
           },
         ),
         const Gap(24),
-        SettingTileButton(
+        _SettingTileButton(
           trailingIcon: const Icon(CupertinoIcons.tag),
           label: 'ライセンス',
           onTap: () async {
@@ -88,7 +81,7 @@ class SettingItemList extends ConsumerWidget {
         Row(
           children: [
             const Icon(CupertinoIcons.info),
-            const Gap(8),
+            const Gap(16),
             Expanded(
               child: Text(
                 'バージョン',
@@ -111,10 +104,30 @@ class SettingItemList extends ConsumerWidget {
   }
 }
 
+/// 設定の各項目の見出し。
+class _SettingHeadlineWidget extends StatelessWidget {
+  const _SettingHeadlineWidget({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: context.titleSmall,
+        ),
+        const Gap(8),
+      ],
+    );
+  }
+}
+
 /// 全体をタップできる設定項目。
-class SettingTileButton extends StatelessWidget {
-  const SettingTileButton({
-    super.key,
+class _SettingTileButton extends StatelessWidget {
+  const _SettingTileButton({
     required this.trailingIcon,
     required this.label,
     required this.onTap,
@@ -131,7 +144,7 @@ class SettingTileButton extends StatelessWidget {
       child: Row(
         children: [
           trailingIcon,
-          const Gap(8),
+          const Gap(16),
           Expanded(
             child: Text(
               label,
