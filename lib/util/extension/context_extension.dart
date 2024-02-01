@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension ContextExtension on BuildContext {
-  /// MediaQuery
+  // * ------ MediaQuery ------ * //
   bool get isDark => MediaQuery.platformBrightnessOf(this) == Brightness.dark;
   double get deviceWidth => MediaQuery.sizeOf(this).width;
   double get deviceHeight => MediaQuery.sizeOf(this).height;
@@ -14,20 +14,22 @@ extension ContextExtension on BuildContext {
   double get appBarHeight => MediaQuery.paddingOf(this).top + kToolbarHeight;
   Orientation get orientation => MediaQuery.orientationOf(this);
 
-  /// Theme
+  // * ------ Theme ------ * //
   bool get isAndroid => Theme.of(this).platform == TargetPlatform.android;
   bool get isIOS => Theme.of(this).platform == TargetPlatform.iOS;
-  TextStyle get titleStyle => Theme.of(this).textTheme.headlineSmall!;
-  TextStyle get subtitleStyle => Theme.of(this).textTheme.titleMedium!;
-  TextStyle get bodyStyle => Theme.of(this).textTheme.bodyMedium!;
-  TextStyle get smallStyle => Theme.of(this).textTheme.bodySmall!;
-  TextStyle get verySmallStyle =>
+
+  TextStyle get titleLarge => Theme.of(this).textTheme.titleLarge!;
+  TextStyle get titleMedium => Theme.of(this).textTheme.titleMedium!;
+  TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!;
+  TextStyle get bodyLarge => Theme.of(this).textTheme.bodyLarge!;
+  TextStyle get bodyMedium => Theme.of(this).textTheme.bodyMedium!;
+  TextStyle get bodySmall => Theme.of(this).textTheme.bodySmall!;
+  TextStyle get bodyVerySmall =>
       Theme.of(this).textTheme.bodySmall!.copyWith(fontSize: 10);
 
-  Color get primaryColor => Theme.of(this).primaryColor;
-  Color get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 
-  /// Function
+  // * ------ Function ------ * //
   void hideKeyboard() {
     // https://github.com/flutter/flutter/issues/54277#issuecomment-640998757
     final currentScope = FocusScope.of(this);
@@ -45,7 +47,7 @@ extension ContextExtension on BuildContext {
   }) {
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
-        backgroundColor: backgroundColor ?? primaryColor,
+        backgroundColor: backgroundColor ?? colorScheme.primary,
         content: Text(text),
         duration: duration,
         action: SnackBarAction(

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../presentation/page/setting_page.dart';
 import '../presentation/page/top_page.dart';
 
 part 'app_router.g.dart';
@@ -26,24 +27,9 @@ class AppRouter extends _$AppRouter {
           path: '/',
           page: TopRoute.page,
         ),
-        // AdaptiveRoute(
-        //   path: '/setting',
-        //   page: SettingRouterRoute.page,
-        //   fullscreenDialog: true,
-        //   children: [
-        //     AdaptiveRoute(
-        //       initial: true,
-        //       page: SettingRoute.page,
-        //     ),
-        //     AdaptiveRoute(
-        //       path: 'license',
-        //       page: MyLicenseRoute.page,
-        //     ),
-        //     AdaptiveRoute(
-        //       path: 'user_list_muted',
-        //       page: UserListMutedRoute.page,
-        //     ),
-        //   ],
-        // ),
+        AdaptiveRoute(
+          path: '/setting',
+          page: SettingRoute.page,
+        ),
       ];
 }
