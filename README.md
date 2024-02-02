@@ -27,6 +27,10 @@ sh bin/set_up/set_up.sh
 
 ※ iOS は不要。
 
+### 一部コードの修正
+
+- `TODO(me): * ~~` という形式の TODO コメントの対応をする
+
 ## 実装済み
 
 - Firebase を利用 (Authentication, Firestore, Functions, Analytics, Crashlytics)
@@ -90,23 +94,3 @@ sh bin/set_up/set_up.sh
   ```sh
   fvm flutter run --debug --dart-define-from-file=dart_defines/prod.json
   ```
-
-## 新規プロジェクトへの移行方法
-
-1. git clone で取り込み、作業用ディレクトリへコピーする
-
-    ```sh
-    git clone https://github.com/hukusuke1007/flutter_app_template.git
-    cp -rf feature_first/ [作業用ディレクトリのパス]
-    cd [作業用ディレクトリのパス]
-    ```
-
-2. 取り込み後、作業用ディレクトリ内の`.git`を削除する
-
-    ```sh
-    rm -rf .git
-    ```
-
-3. 問題なければ新しい git repository を作成して本プロジェクトをプッシュする。
-
-4. あとは良しなに使わないプラグインやコードを削除して開発を進めてください。

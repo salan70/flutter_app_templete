@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'my_button_controller.dart';
+import '../../../../../feature/analytics/util/firebase_analytics_extension.dart';
+import '../../../infrastructure/firebase_instance.dart';
 
 /// アプリ内で使用するボタン。
 ///
@@ -29,10 +30,7 @@ class MyButton extends ConsumerWidget {
       onPressed: onPressed == null
           ? null
           : () async {
-              await ref
-                  .read(myButtonControllerProvider)
-                  .logTapButton(buttonName);
-
+              await ref.read(analyticsProvider).logTapEvent(buttonName);
               onPressed!();
             },
       child: child,
