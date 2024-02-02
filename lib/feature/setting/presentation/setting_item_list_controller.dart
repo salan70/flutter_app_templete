@@ -36,7 +36,7 @@ class SettingItemListController with PresentationMixin {
   Future<void> onTapPrivacyPolicyTile() async {
     await ref
         .read(analyticsProvider)
-        .logTapEvent('to_term_tile_in_setting_page');
+        .logTapEvent('to_privacy_policy_tile_in_setting_page');
 
     await tryActionWithSnackBar(
       action: () async {
