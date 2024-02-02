@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,14 +13,6 @@ class SettingPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('設定'),
-        actions: [
-          IconButton(
-            icon: const Icon(CupertinoIcons.xmark),
-            onPressed: () async {
-              await context.popRoute();
-            },
-          ),
-        ],
       ),
       body: const SettingItemList(),
     );
